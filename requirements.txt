@@ -1,0 +1,8 @@
+box2d-py
+keras
+numpy
+gym
+matplotlib
+tensorflow
+keras-rl
+
