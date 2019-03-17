@@ -4,5 +4,5 @@ numpy
 gym
 matplotlib
 tensorflow
-keras-rl
+
 

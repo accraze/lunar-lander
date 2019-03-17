@@ -17,10 +17,10 @@ class SequentialMemory(object):
         self.recent_terminals = deque(maxlen=window_length)
 
         self.limit = limit
-        self.actions = deque(limit)
-        self.rewards = deque(limit)
-        self.terminals = deque(limit)
-        self.observations = deque(limit)
+        self.actions = deque(maxlen=limit)
+        self.rewards = deque(maxlen=limit)
+        self.terminals = deque(maxlen=limit)
+        self.observations = deque(maxlen=limit)
 
     def sample(self, batch_size, batch_idxs=None):
         """Return a randomized batch of transitions
