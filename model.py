@@ -1,14 +1,12 @@
 from keras.models import Sequential
-from keras.layers import Dense, Activation, Flatten
+from keras.layers import Dense
+from keras.optimizers import Adam
 
 
-def build_model(env, nb_actions):
+def build_model(num_states, num_actions, lr):
     model = Sequential()
-    model.add(Flatten(input_shape=(1,) + env.observation_space.shape))
-    model.add(Dense(40))
-    model.add(Activation('relu'))
-    model.add(Dense(40))
-    model.add(Activation('relu'))
-    model.add(Dense(nb_actions))
-    model.add(Activation('linear'))
+    model.add(Dense(64, input_dim=num_states, activation='relu'))
+    model.add(Dense(64, activation='relu'))
+    model.add(Dense(num_actions, activation='linear'))
+    model.compile(loss='mse', optimizer=Adam(lr=lr))
     return model
